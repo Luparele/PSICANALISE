@@ -44,7 +44,7 @@
                     <a href="#contato" class="btn btn-primary">Agendar Conversa Inicial</a>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="assets/images/hero.png" alt="Poltrona confortável em ambiente iluminado" class="hero-image">
+                    <img src="assets/images/03.jpeg" alt="Imagem ambiente do consultório" class="hero-image" style="object-position: top;">
                 </div>
             </div>
         </section>
@@ -75,32 +75,48 @@
         <!-- Seção Como Funciona a Análise -->
         <section id="abordagem" class="approach">
             <div class="container">
-                <div class="section-header">
-                    <h2>A Jornada Analítica</h2>
-                    <p>Compreenda os pilares do nosso trabalho conjunto</p>
-                </div>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="icon-wrapper">
-                            <i data-lucide="ear"></i>
-                        </div>
-                        <h3>A Escuta Analítica</h3>
-                        <p>Um espaço onde você é convidado a falar livremente. O analista escuta ativamente, atento não só ao que é dito, mas também aos silêncios e entrelinhas.</p>
+                <div class="approach-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch;">
+                    <!-- Coluna com as Imagens -->
+                    <div class="approach-image-wrapper" style="position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-subtle); height: 100%; max-height: 600px;">
+                        <img src="assets/images/01.jpeg" alt="Ambiente de psicanálise" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); object-position: center top;">
                     </div>
-                    <div class="card">
-                        <div class="icon-wrapper">
-                            <i data-lucide="brain"></i>
+                    
+                    <!-- Coluna com os Cartões e Textos -->
+                    <div class="approach-content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; max-height: 600px;">
+                        <div class="section-header" style="text-align: left; margin: 0;">
+                            <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">A Jornada Analítica</h2>
+                            <p style="font-size: 1rem; margin-bottom: 0;">Compreenda os pilares do nosso trabalho conjunto</p>
                         </div>
-                        <h3>O Inconsciente</h3>
-                        <p>A investigação cuidadosa de padrões repetitivos, sonhos e atos falhos para compreender as raízes do sofrimento e das angústias subjacentes.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-wrapper">
-                            <i data-lucide="link"></i>
+
+                        <div class="cards-grid" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1; margin-top: 1.5rem; gap: 1rem;">
+                            <div class="card" style="padding: 1.5rem; text-align: left; display: flex; gap: 1rem; align-items: center; box-shadow: none; border-left: 3px solid var(--clr-sage-light); border-radius: 0 8px 8px 0; background: var(--clr-off-white); height: 100%;">
+                                <div class="icon-wrapper" style="margin: 0; min-width: 45px; height: 45px;">
+                                    <i data-lucide="ear" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem 0; font-size: 1.1rem;">A Escuta Analítica</h3>
+                                    <p style="margin: 0; font-size: 0.9rem;">Um espaço de fala livre, atentando não só ao que é dito, mas também às entrelinhas.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="padding: 1.5rem; text-align: left; display: flex; gap: 1rem; align-items: center; box-shadow: none; border-left: 3px solid var(--clr-sage-light); border-radius: 0 8px 8px 0; background: var(--clr-off-white); height: 100%;">
+                                <div class="icon-wrapper" style="margin: 0; min-width: 45px; height: 45px;">
+                                    <i data-lucide="brain" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem 0; font-size: 1.1rem;">O Inconsciente</h3>
+                                    <p style="margin: 0; font-size: 0.9rem;">A investigação cuidadosa de padrões repetitivos para compreender as raízes do sofrimento.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="padding: 1.5rem; text-align: left; display: flex; gap: 1rem; align-items: center; box-shadow: none; border-left: 3px solid var(--clr-sage-light); border-radius: 0 8px 8px 0; background: var(--clr-off-white); height: 100%;">
+                                <div class="icon-wrapper" style="margin: 0; min-width: 45px; height: 45px;">
+                                    <i data-lucide="link" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem 0; font-size: 1.1rem;">O Vínculo Terapêutico</h3>
+                                    <p style="margin: 0; font-size: 0.9rem;">A relação de confiança construída sessão a sessão, fundamental para sustentar o trabalho profundo.</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3>O Vínculo Terapêutico</h3>
-                        <p>A relação de confiança construída sessão a sessão, fundamental para sustentar o trabalho profundo de elaboração e autoconhecimento.</p>
                     </div>
                 </div>
             </div>
@@ -111,10 +127,14 @@
             <div class="container booking-container">
                 <div class="booking-content">
                     <h2>Pronto para iniciar?</h2>
-                    <p>O primeiro passo é uma conversa inicial para nos conhecermos e entendermos se a análise é o melhor caminho para o seu momento atual.</p>
+                    <p>Selecione abaixo o formato de atendimento que você busca e agende sua primeira conversa.</p>
                     
-                    <!-- Botão de Abertura do Modal -->
-                    <button id="open-modal-btn" class="btn btn-primary btn-block" style="max-width: 400px; margin: 2.5rem auto 0;">Preencher Formulário de Cadastro</button>
+                    <!-- Botões de Abertura do Modal -->
+                    <div class="booking-buttons" style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 2.5rem auto 0;">
+                        <button class="open-modal-btn btn btn-primary btn-block" data-url="https://docs.google.com/forms/d/e/1FAIpQLSdBewlRQyrLjkgVeGkf_wNwL3J4yvjnlQrezq9RsyHq2zWrag/viewform?embedded=true">Psicoterapia</button>
+                        <button class="open-modal-btn btn btn-primary btn-block" data-url="https://docs.google.com/forms/d/e/1FAIpQLSdBewlRQyrLjkgVeGkf_wNwL3J4yvjnlQrezq9RsyHq2zWrag/viewform?embedded=true">Psicopedagogia</button>
+                        <button class="open-modal-btn btn btn-primary btn-block" data-url="https://docs.google.com/forms/d/e/1FAIpQLSdBewlRQyrLjkgVeGkf_wNwL3J4yvjnlQrezq9RsyHq2zWrag/viewform?embedded=true">Assessoria NR1</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -201,21 +221,28 @@
 
         // Controle do Modal do Google Forms
         const modal = document.getElementById("form-modal");
-        const openModalBtn = document.getElementById("open-modal-btn");
+        const openModalBtns = document.querySelectorAll(".open-modal-btn");
         const closeModalBtn = document.getElementById("close-modal-btn");
+        const iframe = modal.querySelector("iframe");
 
         // Abrir o modal
-        openModalBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            // Renderiza o icone de fechar caso não tenha renderizado
-            lucide.createIcons();
-            // Evitar scroll no body
-            document.body.style.overflow = 'hidden';
-            
-            // Força um pequeno atraso para dar tempo do display:flex aplicar antes de mudar a opacidade
-            setTimeout(() => {
-                modal.classList.add('show');
-            }, 10);
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Atualizar a URL do iframe de acordo com o botão clicado
+                const formUrl = e.target.getAttribute('data-url');
+                iframe.src = formUrl;
+
+                modal.style.display = 'flex';
+                // Renderiza o icone de fechar caso não tenha renderizado
+                lucide.createIcons();
+                // Evitar scroll no body
+                document.body.style.overflow = 'hidden';
+                
+                // Força um pequeno atraso para dar tempo do display:flex aplicar antes de mudar a opacidade
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            });
         });
 
         // Fechar o modal na função

@@ -742,6 +742,32 @@ h3 {
         height: 400px;
     }
 
+    .approach-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .approach-image-wrapper {
+        min-height: 300px;
+        max-height: none !important;
+    }
+
+    .approach-content {
+        max-height: none !important;
+    }
+
+    .approach-content .section-header {
+        text-align: center !important;
+    }
+
+    .approach-content .card {
+        flex-direction: column;
+        text-align: center !important;
+        border-left: none !important;
+        border-top: 3px solid var(--clr-sage-light);
+        border-radius: 0 0 8px 8px !important;
+    }
+
     .cards-grid {
         grid-template-columns: 1fr;
     }
