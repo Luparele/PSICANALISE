@@ -112,39 +112,24 @@
                 <div class="booking-content">
                     <h2>Pronto para iniciar?</h2>
                     <p>O primeiro passo é uma conversa inicial para nos conhecermos e entendermos se a análise é o melhor caminho para o seu momento atual.</p>
-                </div>
-                
-                <!-- HTML Form -->
-                <form class="booking-form" id="contact-form" action="https://formspree.io/f/mnnjqkpw" method="POST">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado" required>
-                    </div>
                     
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem (opcional)</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Algum motivo específico que o traz à análise?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Solicitação</button>
-                    <p class="form-note">Suas informações são tratadas com total sigilo profissional.</p>
-                </form>
-
-                <!-- Mensagem de Sucesso (Oculta por padrão) -->
-                <div id="form-success" class="booking-form success-message" style="display: none; text-align: center;">
-                    <div class="icon-wrapper" style="margin: 0 auto 1.5rem; background-color: var(--clr-sage-light); color: white;">
-                        <i data-lucide="check-circle" style="width: 40px; height: 40px;"></i>
-                    </div>
-                    <h3 style="color: var(--clr-sage-green); margin-bottom: 1rem;">Solicitação Enviada!</h3>
-                    <p style="color: var(--clr-text-main);">Agradeço muito pelo contato. Retornarei o mais breve possível para agendarmos nossa conversa.</p>
+                    <!-- Botão de Abertura do Modal -->
+                    <button id="open-modal-btn" class="btn btn-primary btn-block" style="max-width: 400px; margin: 2.5rem auto 0;">Preencher Formulário de Cadastro</button>
                 </div>
             </div>
         </section>
+
+        <!-- Modal do Google Forms -->
+        <div id="form-modal" class="modal">
+            <div class="modal-content">
+                <button id="close-modal-btn" class="close-modal" aria-label="Fechar Modal">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="iframe-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfg69HKt_CLpR3UCPhfwxVZ4ofmMozIgFivGJ2rhJxyyoHPQQ/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -214,49 +199,52 @@
             });
         });
 
-        // Formspree AJAX Submission
-        const form = document.getElementById("contact-form");
-        const successMessage = document.getElementById("form-success");
-        const submitBtn = form.querySelector('button[type="submit"]');
+        // Controle do Modal do Google Forms
+        const modal = document.getElementById("form-modal");
+        const openModalBtn = document.getElementById("open-modal-btn");
+        const closeModalBtn = document.getElementById("close-modal-btn");
 
-        async function handleSubmit(event) {
-            event.preventDefault();
+        // Abrir o modal
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            // Renderiza o icone de fechar caso não tenha renderizado
+            lucide.createIcons();
+            // Evitar scroll no body
+            document.body.style.overflow = 'hidden';
             
-            // Mudar estado do botão para loading
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
+            // Força um pequeno atraso para dar tempo do display:flex aplicar antes de mudar a opacidade
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        });
 
-            const data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    lucide.createIcons(); // renderizar o ícone de check do sucesso
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert("Oops! Ocorreu um problema ao enviar seu formulário.");
-                        }
-                    })
-                }
-            }).catch(error => {
-                alert("Oops! Ocorreu um problema de conexão.");
-            }).finally(() => {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-            });
+        // Fechar o modal na função
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Retorna o scroll ao body
+            
+            // Espera a animação de fade-out acabar antes de dar display = none
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
         }
-        form.addEventListener("submit", handleSubmit);
+
+        // Fechar pelo botão X
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Fechar ao clicar fora do conteúdo do modal (overlay)
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
 
         // Scroll Reveal simples
         const observerOptions = {
