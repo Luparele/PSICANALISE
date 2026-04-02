@@ -162,17 +162,45 @@ h3 {
     transition: all 0.3s ease;
 }
 
+.hero-logo {
+    height: 160px; /* Aumentado de 120px para melhor destaque */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 2.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza Horizontalmente */
+}
+
+@media (max-width: 992px) {
+    .hero-logo {
+        margin-left: auto;
+        margin-right: auto;
+        height: 100px;
+    }
+}
+
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Links agora centralizados na navbar */
     align-items: center;
 }
 
-.logo-initials {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    color: var(--clr-sage-green);
+.logo-image {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+.footer-logo {
+    height: 160px; /* Aumentado conforme solicitado */
+    margin-bottom: 1.5rem;
+    filter: brightness(0.2); /* Deixa o logo mais escuro para o rodapé claro */
 }
 
 .nav-links {
@@ -222,8 +250,8 @@ h3 {
    Seção Hero
    ========================================= */
 .hero {
-    padding-top: calc(80px + var(--spacing-xl));
-    padding-bottom: var(--spacing-xl);
+    padding-top: calc(80px + 1.5rem); /* Reduzido para 1.5rem conforme solicitado */
+    padding-bottom: 2.5rem;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -390,6 +418,13 @@ h3 {
 .booking {
     padding: var(--spacing-xl) 0;
     position: relative;
+    background-image: 
+        linear-gradient(rgba(252, 250, 248, 0.82), rgba(252, 250, 248, 0.82)), /* Proteção em 82% conforme solicitado */
+        url('assets/images/novo material/Pattern-20260401T165755Z-3-001/Pattern/4x/Prancheta 1@4x.png');
+    background-size: cover; /* Evita repetição e emendas */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .booking-container {
@@ -487,7 +522,7 @@ h3 {
     padding-bottom: var(--spacing-lg);
 }
 
-.footer-info .logo-initials {
+.footer-info .logo-image {
     display: inline-block;
     margin-bottom: 1rem;
 }
@@ -545,6 +580,11 @@ h3 {
     background-color: rgba(138, 154, 134, 0.1);
     color: var(--clr-sage-green);
     transition: all 0.3s ease;
+}
+
+.social-links a i {
+    width: 20px;
+    height: 20px;
 }
 
 .social-links a:hover {
